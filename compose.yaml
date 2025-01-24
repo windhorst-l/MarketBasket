@@ -30,9 +30,9 @@ services:
             - MSSQL_PID=Developer
 
         volumes:
-            - /mssql-data:/var/opt/mssql
-            - ./init.sql:/init.sql
+            - ./mssql-data/:/var/opt/mssql
+            - ./init/:/init
 
 
-        command: /bin/bash -c "/opt/mssql/bin/sqlservr & sleep 30s && /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'BratwurstIN23!' -d master -i /init.sql & sleep infinity"
+        command: /bin/bash -c "/opt/mssql/bin/sqlservr & sleep 30s && /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'BratwurstIN23!' -d master -i /init/init.sql & sleep infinity"
   
