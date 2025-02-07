@@ -62,7 +62,7 @@ if (sqlsrv_has_rows($stmt)) {
         sqlsrv_free_stmt($permission_stmt);
 
         // Weiterleitung zur entsprechenden Seite je nach Rolle
-        header('Location: loggedinIndex.php');
+        header('Location: index.php');
         exit;
     } else {
         echo 'Passwort stimmt nicht mit dem Username überein';

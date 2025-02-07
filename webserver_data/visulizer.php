@@ -35,10 +35,9 @@ include 'admincheck.php'
 <footer>
 
 </footer>
-  <script defer src="https://dart.dev/tools/dart2js/dart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-            var ctx = document.getElementById('myChart').getContext('2d');
+    var ctx = document.getElementById('myChart').getContext('2d');
 
 // Erstelle das Balkendiagramm
 var myChart = new Chart(ctx, {
