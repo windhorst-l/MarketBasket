@@ -30,7 +30,7 @@ include 'admincheck.php'
     </nav>
   </header>
 <main>
-        <canvas id="myChart"></canvas> <!-- Hier wird das Diagramm gezeichnet -->
+        <canvas id="myChart"></canvas>
 </main>
 <footer>
 
@@ -39,24 +39,23 @@ include 'admincheck.php'
   <script>
     var ctx = document.getElementById('myChart').getContext('2d');
 
-// Erstelle das Balkendiagramm
 var myChart = new Chart(ctx, {
-    type: 'bar', // Diagrammtyp: "bar" für Balkendiagramm
+    type: 'bar', 
     data: {
-        labels: ['Januar', 'Februar', 'März', 'April', 'Mai'], // X-Achsen-Beschriftung
+        labels: ['Januar', 'Februar', 'März', 'April', 'Mai'],
         datasets: [{
             label: 'Umsatz in €',
-            data: [500, 700, 1200, 1500, 900], // Werte für die Balken
-            backgroundColor: ['red', 'blue', 'green', 'orange', 'purple'], // Farben der Balken
-            borderColor: 'black', // Randfarbe
-            borderWidth: 1 // Randbreite
+            data: [500, 700, 1200, 1500, 900],
+            backgroundColor: ['red', 'blue', 'green', 'orange', 'purple'], 
+            borderColor: 'black', 
+            borderWidth: 1 
         }]
     },
     options: {
-        responsive: true, // Diagramm passt sich der Bildschirmgröße an
+        responsive: true, 
         scales: {
             y: {
-                beginAtZero: true // Die Y-Achse beginnt bei 0
+                beginAtZero: true 
             }
         }
     }

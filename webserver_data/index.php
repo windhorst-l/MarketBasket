@@ -28,12 +28,12 @@ session_start();
 
               
               <?php if (in_array('admin', $_SESSION['permissions'])): ?>
-                  <li><a href="admin_tools.php">AdminTools</a></li>
+                  <li><a href="visualizer.php">AdminTools</a></li>
               <?php endif; ?>
 
               <?php if (in_array('dev', $_SESSION['permissions'])): ?>
-                  <li><a href="admin_tools.php">AdminTools</a></li>
-                  <li><a href="dev_tools.php">DevTools</a></li>
+                  <li><a href="visualizer.php">AdminTools</a></li>
+                  <li><a href="devtools.php">DevTools</a></li>
               <?php endif; ?>
 
               <li><a href="logout.php">Logout</a></li>
