@@ -1,3 +1,7 @@
+<?php
+include 'admincheck.php'
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -19,6 +23,7 @@
         <ul class="right hide-on-med-and-down">
           <li><i class="material-icons">shopping_cart</i></li>
           <li><i class="material-icons">account_box</i></li>
+          <li><?= htmlspecialchars($_SESSION['name'], ENT_QUOTES) ?></li>
           <li><a href="logout.php">Logout</a></li>
         </ul>
       </div>
