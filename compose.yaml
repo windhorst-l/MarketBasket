@@ -7,7 +7,6 @@ services:
 
         volumes:
         - ./webserver_data/:/var/www/localhost/htdocs/
-        #- /phpConf/:/etc/php83 
 
         ports:
             - "80:80"
@@ -36,3 +35,29 @@ services:
 
         command: /bin/bash -c "/opt/mssql/bin/sqlservr & sleep 30s && /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'BratwurstIN23!' -d master -i /init/init.sql & sleep infinity"
   
+
+    mongo:
+        image: mongo
+        container_name: MarketBasketMongo
+        ports:
+            - "27017:27017"
+        volumes:
+            - ./mongo-data:/data/db
+
+    sync:
+        container_name: MarketBasketPython
+        build: 
+            context: .
+            dockerfile: sync/Dockerfile
+        depends_on:
+            - database
+            - mongo
+        volumes:
+            - ./sync/syncScript:/app
+        environment:
+            MSSQL_HOST: database
+            MSSQL_USER: SA
+            MSSQL_PASSWORD: "BratwurstIN23!"
+            MSSQL_DB: TestDB
+            MONGO_URI: "mongodb://mongo:27017/"
+        restart: always
